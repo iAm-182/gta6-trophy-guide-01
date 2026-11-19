@@ -6,6 +6,7 @@
 // from beside this file into /output (or MAKEFUN_OUTPUT_DIR outside the grader)
 // and writes /output/dossier.json with the kit's vendored library —
 // vendor/makefun-frontend.ts is the scorer's own copy, left byte-for-byte as shipped.
+// 55 trophies · 8 missables · 6 roadmap stages.
 //
 //   mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
 //   node cli/makefun.mjs check --repo . --json   (from the kit directory)

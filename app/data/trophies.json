@@ -3,6 +3,7 @@
   "game": "Grand Theft Auto VI",
   "platform": "PlayStation 5",
   "list": "55 trophies: 1 platinum, 2 gold, 6 silver, 46 bronze; 28 hidden on PSN (official list, frozen 18 Nov 2026).",
+  "updated": "2026-11-20",
   "sources": {
     "exophase": {
       "label": "Exophase — GTA 6 trophies (official name, description, grade)",
@@ -264,8 +265,7 @@
       "stage": 3,
       "guide": "Win 20 different races. PSN tracks this as 0/20. Winning the same race twice does not add to the count — you need 20 distinct race events. Mix race types (street, off-road, drone, boat, air) and work through the race markers across Leonida; each first win counts.",
       "sources": ["exophase", "psnprofiles"]
-    }
-,
+    },
     {
       "id": 20,
       "name": "Baited My Tackle",
@@ -499,8 +499,7 @@
       "stage": 1,
       "guide": "Make an unscheduled departure at VCIA. MISSABLE: this reads as a one-time moment at Vice City International Airport — leave by a way the airport did not schedule (a runway departure that is not on the timetable). Take the unscheduled way out when the opportunity appears; the description gives no second chance.",
       "sources": ["exophase"]
-    }
-,
+    },
     {
       "id": 38,
       "name": "Challenging Tank",

@@ -1,6 +1,7 @@
 // Leonida Trophy Atlas — offline GTA 6 trophy tracker.
 // Static files only: fetches data/trophies.json, saves progress in localStorage,
 // exports/imports it as a file. No network requests besides the local JSON fetch.
+// 55 trophies · 8 missables flagged · 6-stage roadmap · spoiler-safe.
 const KEY = 'leonida-trophy-atlas-v1';
 const SEED_IDS = [2, 3, 8, 16, 20, 21, 29, 36, 44, 45, 46, 51, 53]; // demo progress (?seed=13)
 
