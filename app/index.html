@@ -3,23 +3,122 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GTA VI trophy checklist</title>
+<title>Leonida Trophy Atlas — GTA 6 Trophy Guide &amp; Tracker</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <h1>GTA VI trophy checklist</h1>
-  <p id="progress">0 of 55 earned</p>
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true">VI</div>
+      <div>
+        <h1>Leonida Trophy Atlas</h1>
+        <p class="subtitle">Grand Theft Auto VI &middot; PlayStation 5 &middot; the complete trophy guide &amp; tracker</p>
+      </div>
+    </div>
+    <div class="progress-box" id="progressBox">
+      <div class="progress-count"><span id="earnedCount">0</span><span class="of">/ 55</span></div>
+      <div class="progress-label">trophies earned</div>
+      <div class="progress-bar" role="progressbar" aria-label="Trophy progress"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="progress-sub" id="progressSub">0% &middot; 0 of 1 platinum &middot; 0 of 2 gold &middot; 0 of 6 silver &middot; 0 of 46 bronze</div>
+    </div>
+  </div>
+  <p class="list-line">The official list: <strong>55 trophies</strong> — 1 platinum, 2 gold, 6 silver, 46 bronze, 28 hidden on PSN. Every name, description and grade below is as PlayStation publishes it. Guides are our own words, written from the official descriptions — GTA 6 released 19 Nov 2026, so steps are not yet verified in-game. Works fully offline; your progress never leaves this browser.</p>
 </header>
-<div class="controls">
-  <label>Grade <select id="grade"><option value="all">All</option><option value="platinum">Platinum</option><option value="gold">Gold</option><option value="silver">Silver</option><option value="bronze">Bronze</option></select></label>
-  <button id="export" type="button">Export progress</button>
-  <label class="import">Import progress <input id="import" type="file" accept="application/json"></label>
-</div>
-<table>
-  <thead><tr><th>Earned</th><th>Trophy</th><th>Grade</th><th>How to get it</th></tr></thead>
-  <tbody id="rows"></tbody>
-</table>
+
+<nav class="tabs" aria-label="Sections">
+  <button class="tab active" data-view="checklist" type="button">Checklist</button>
+  <button class="tab" data-view="roadmap" type="button">Roadmap to Platinum</button>
+  <button class="tab" data-view="missables" type="button">Missables <span class="tab-badge" id="missableCount">8</span></button>
+  <button class="tab" data-view="about" type="button">About &amp; Sources</button>
+</nav>
+
+<section class="toolbar" id="toolbar">
+  <input id="search" type="search" placeholder="Search trophies by name or description…" aria-label="Search trophies">
+  <div class="chips" role="group" aria-label="Filter by kind">
+    <button class="chip active" data-kind="all" type="button">All 55</button>
+    <button class="chip" data-kind="story" type="button">Story</button>
+    <button class="chip" data-kind="missable" type="button">Missable</button>
+    <button class="chip" data-kind="collectible" type="button">Collectibles</button>
+    <button class="chip" data-kind="activity" type="button">Activities</button>
+    <button class="chip" data-kind="online" type="button">Online</button>
+  </div>
+  <label class="grade-filter">Grade
+    <select id="grade">
+      <option value="all">All grades</option>
+      <option value="platinum">Platinum</option>
+      <option value="gold">Gold</option>
+      <option value="silver">Silver</option>
+      <option value="bronze">Bronze</option>
+    </select>
+  </label>
+  <label class="spoiler-toggle"><input id="spoiler" type="checkbox"> Hide story spoilers</label>
+  <div class="io-buttons">
+    <button id="export" type="button">Export progress</button>
+    <label class="import-btn">Import progress <input id="import" type="file" accept="application/json"></label>
+  </div>
+</section>
+
+<main>
+  <section id="view-checklist" class="view active">
+    <div class="split">
+      <div class="list-col">
+        <p class="list-meta" id="listMeta"></p>
+        <ul class="trophy-list" id="trophyList"></ul>
+        <p class="empty" id="emptyMsg" hidden>No trophies match these filters. The official list has no online trophies — every one of the 55 is earned in single-player.</p>
+      </div>
+      <aside class="detail-col" id="detailPane" aria-live="polite"></aside>
+    </div>
+  </section>
+
+  <section id="view-roadmap" class="view">
+    <h2>Roadmap to the platinum</h2>
+    <p class="view-intro">The order that wastes the least time. Story first — the unmissable trophies come free as you play — then strangers, activities, collectibles and money. Do the missable ones <em>when they appear</em>; everything else can be cleaned up after the credits.</p>
+    <div class="stages" id="stages"></div>
+  </section>
+
+  <section id="view-missables" class="view">
+    <h2>Missable trophies — do them when they come up</h2>
+    <p class="view-intro">These 8 are flagged from the official descriptions: each one describes a specific moment, a partner who is only available in certain story phases, or a one-time retry. The flags are our reading of the descriptions, not confirmed in-game yet — the game only released today.</p>
+    <div class="caveat"><strong>About the story missions:</strong> the named story-mission trophies (Breakfast Run, The Cartel Heist, Child's Play, Headliners, VCIA Takedown, Operation Savage Glory) are listed as unmissable on the assumption missions can be replayed, as in GTA V. If GTA 6 has no mission replay, treat every story mission as missable too.</div>
+    <ul class="trophy-list missable-list" id="missableList"></ul>
+  </section>
+
+  <section id="view-about" class="view">
+    <h2>About &amp; sources</h2>
+    <div class="about-grid">
+      <div>
+        <h3>What this is</h3>
+        <p>An offline guide and tracker for all 55 PlayStation 5 trophies of Grand Theft Auto VI, released 19 November 2026. Tick trophies off as you earn them; your progress is saved in this browser (localStorage) and can be exported to a file and imported back.</p>
+        <h3>How to use it</h3>
+        <ol>
+          <li>Play the story (Roadmap, stage 1) and tick trophies off as they pop.</li>
+          <li>When a missable moment comes up, open its guide first — the missable flags are on the Missables tab.</li>
+          <li>After the credits, work stages 2–5 in order; the checklist's counters (e.g. 0/250 stunts) track the big grinds.</li>
+          <li>Use <strong>Hide story spoilers</strong> to keep story trophy names and descriptions hidden until you earn them.</li>
+        </ol>
+        <h3>Offline &amp; private</h3>
+        <p>This app is static files only. It loads nothing from the network, sends nothing anywhere, and your progress never leaves this browser unless you export it yourself.</p>
+      </div>
+      <div>
+        <h3>Sources</h3>
+        <ul class="source-list">
+          <li><a href="https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/">Exophase — Grand Theft Auto VI trophies</a><br>Official trophy names, descriptions and grades.</li>
+          <li><a href="https://psnprofiles.com/trophies/43531-grand-theft-auto-vi">PSNProfiles — Grand Theft Auto VI trophies</a><br>PSN progress targets (the 0/N counts shown on counted trophies).</li>
+        </ul>
+        <h3>Honesty note</h3>
+        <p>Every guide here is written in our own words from the official trophy description. The game released today, so no public guide is complete and our steps are <strong>not yet verified in-game</strong>. Where a specific location or step is not pinned down by the description, the guide says what the description implies instead of inventing a location. As real guides appear, their facts can be cited here — a cited guide beats an invented one.</p>
+        <h3>Data</h3>
+        <p>Full trophy data (names, descriptions, grades, guides, sources, targets) lives in <code>app/data/trophies.json</code>. Open source, MIT licensed.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>Leonida Trophy Atlas — an unofficial, open-source fan guide. Grand Theft Auto, GTA and Rockstar Games are trademarks of their owners; this guide uses no Rockstar logo, artwork or game imagery. Trophy names and descriptions are as PlayStation publishes them. Progress is stored only in your browser.</p>
+</footer>
+
 <script type="module" src="app.js"></script>
 </body>
 </html>
